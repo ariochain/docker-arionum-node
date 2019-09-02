@@ -38,6 +38,11 @@ docker ps
 ```bash
 docker exec -ti <PHP_FPM_CONTAINER_ID> git pull
 ```
+- or you can try to automaticaly select container id
+
+```bash
+docker exec -ti `docker ps|grep arionum|grep php-fpm|awk '{print $1}'` git pull
+```
 
 ## Troubleshooting
 
