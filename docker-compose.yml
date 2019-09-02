@@ -1,0 +1,47 @@
+version: '3.5'
+
+services:
+  arionum-php-fpm:
+    build:
+      context: ./php-fpm
+    networks:
+      - arionumnetwork
+
+  arionum-nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites/:/etc/nginx/sites
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+    ports:
+      - "8080:80"
+      - "8443:443"
+    networks:
+      - arionumnetwork
+    depends_on:
+      - "arionum-php-fpm"
+
+  arionum-mariadb:
+    build:
+      context: ./mariadb
+    environment:
+      - MYSQL_DATABASE=arionum
+      - MYSQL_USER=arionum
+      - MYSQL_PASSWORD=arionum
+      - MYSQL_ROOT_PASSWORD=arionum
+    networks:
+      - arionumnetwork
+    volumes:
+      - type: bind
+        source: "${PV_ROOT:-~/data/arionum-mariadb-data/}"
+        target: "/var/lib/mysql"
+
+  cronjobs:
+    build: ./cronjobs
+    networks:
+      - arionumnetwork
+
+networks:
+  arionumnetwork:
+    driver: bridge
