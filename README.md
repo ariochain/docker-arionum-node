@@ -51,11 +51,17 @@ docker exec -ti `docker ps|grep arionum|grep php-fpm|awk '{print $1}'` git pull
 ```bash
 docker exec -ti <PHP_FPM_CONTAINER_ID> php sanity.php
 ```
+```bash
+docker exec -ti `docker ps|grep arionum|grep php-fpm|awk '{print $1}'` php sanity.php
+```
 
 - remove sanity-lock
 
 ```bash
 docker exec -ti <PHP_FPM_CONTAINER_ID> rm tmp/sanity-lock
+```
+```bash
+docker exec -ti `docker ps|grep arionum|grep php-fpm|awk '{print $1}'` rm tmp/sanity-lock
 ```
 
 - remove last 100 blocks
@@ -63,9 +69,15 @@ docker exec -ti <PHP_FPM_CONTAINER_ID> rm tmp/sanity-lock
 ```bash
 docker exec -ti <PHP_FPM_CONTAINER_ID> php util.php pop 100
 ```
+```bash
+docker exec -ti `docker ps|grep arionum|grep php-fpm|awk '{print $1}'` php util.php pop 100
+```
 
 - clean database
 
 ```bash
 docker exec -ti <PHP_FPM_CONTAINER_ID> php util.php clean
+```
+```bash
+docker exec -ti `docker ps|grep arionum|grep php-fpm|awk '{print $1}'` php util.php clean
 ```
