@@ -14,7 +14,7 @@ mkdir -p ~/data/arionum-mariadb-data/
 ## Usage  
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 
