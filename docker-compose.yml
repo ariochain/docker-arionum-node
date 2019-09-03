@@ -4,8 +4,13 @@ services:
   arionum-php-fpm:
     build:
       context: ./php-fpm
+      args:
+        - MYSQL_DATABASE=arionum
+        - MYSQL_USER=arionum      
+        - MYSQL_PASSWORD=arionum
     networks:
       - arionumnetwork
+
 
   arionum-nginx:
     build:
