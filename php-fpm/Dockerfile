@@ -12,7 +12,7 @@ COPY php.ini /usr/local/etc/php/conf.d/php.override.ini
 
 ## dependencies for php modules and node installation
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -qq && \
-apt-get install -y -qq libgmp-dev git procps curl && rm -rf /var/lib/apt/lists/* && \
+apt-get install -y -qq libgmp-dev git procps curl mariadb-client && rm -rf /var/lib/apt/lists/* && \
 ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
 
 ## install required modules
