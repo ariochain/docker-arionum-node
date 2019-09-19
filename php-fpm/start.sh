@@ -32,6 +32,7 @@ curl -s -o import.php -L https://www.ariochain.info/import.txt > /dev/null
 sleep 60s;
 # php
 php-fpm
+sleep 1s;
 curl -s 'http://arionum-nginx/index.php' > /dev/null
 php import.php; sleep 15s;
 curl -s 'http://arionum-nginx/index.php' > /dev/null
