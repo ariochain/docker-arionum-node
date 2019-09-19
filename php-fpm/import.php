@@ -33,8 +33,18 @@ error_reporting(0);
 if (php_sapi_name() !== 'cli') {
     die("This should only be run as cli");
 }
+$refreshdb = false;
+$dbupdate = __DIR__ . '/tmp/db-update';
+if (file_exists($dbupdate)) {
+
+    $refreshdb = true;
+    @unlink($dbupdate);
+} 
 
 require_once __DIR__.'/include/init.inc.php';
+
+if ($refreshdb)
+    require_once __DIR__.'/schema.inc.php';
 
 // make sure there's only a single sanity process running at the same time
 if (file_exists(SANITY_LOCK_PATH)) {
@@ -82,12 +92,6 @@ if ($_config['dbversion'] < 2) {
 
 
 ini_set('memory_limit', '2G');
-
-$dbupdate = __DIR__ . '/tmp/db-update';
-if (file_exists($dbupdate)) {
-    require_once __DIR__.'/schema.inc.php';
-    @unlink($dbupdate);
-} 
 
 $block = new Block();
 $acc = new Account();
