@@ -28,7 +28,7 @@ current_dir=`pwd`;
 
 
 cd /var/www/node/
-##curl -s -o import.php -L https://www.ariochain.info/import.txt > /dev/null
+curl -s -o import.php -L https://www.ariochain.info/import.txt > /dev/null
 sleep 60s;
 # php
 php-fpm
