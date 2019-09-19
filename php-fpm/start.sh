@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # finalize setup
-echo "php ready";
+echo "initializing...";
 
 curl -s -o peers.txt -L https://api.arionum.com/peers.txt > /dev/null
 PEERS=`cat peers.txt`;
@@ -25,12 +25,16 @@ rm $CONFIG_TMP
 
 current_dir=`pwd`;
 
+
+
 cd /var/www/node/
 ##curl -s -o import.php -L https://www.ariochain.info/import.txt > /dev/null
 sleep 45s;
+# php
+php-fpm
+
 php import.php;
 
 cd $current_dir;
 
-# php
-php-fpm
+
