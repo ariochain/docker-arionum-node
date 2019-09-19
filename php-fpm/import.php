@@ -80,6 +80,13 @@ if ($_config['dbversion'] < 2) {
     exit;
 }
 
+
+$dbupdate = __DIR__ . '/tmp/db-update';
+if (file_exists($dbupdate)) {
+    require_once __DIR__.'/schema.inc.php';
+    @unlink($dbupdate);
+} 
+
 ini_set('memory_limit', '2G');
 
 $block = new Block();
@@ -131,6 +138,8 @@ if ($current['height']==1) {
     $current = $block->current();
 }
 
-_log("Finishing import");
+_log("Current block: ".$current['height']);
+
+_log("Import ended");
 
 @unlink(SANITY_LOCK_PATH);
