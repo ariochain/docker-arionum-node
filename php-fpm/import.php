@@ -106,12 +106,12 @@ if ($current['height']==1) {
 
     echo "DB name: $db_name\n";
     echo "DB host: $db_host\n";
-    echo "Downloading the blockchain dump from arionum.info\n";
+    echo "Downloading the blockchain dump from ariochain.info\n";
     $arofile=__DIR__ . '/tmp/aro.sql';
     if (file_exists("/usr/bin/curl")) {
-        system("/usr/bin/curl -o $arofile 'https://arionum.info/dump/aro.sql'", $ret);
+        system("/usr/bin/curl -o $arofile 'https://www.ariochain.info/aro.sql'", $ret);
     } elseif (file_exists("/usr/bin/wget")) {
-        system("/usr/bin/wget -O $arofile 'https://arionum.info/dump/aro.sql'", $ret);
+        system("/usr/bin/wget -O $arofile 'https://www.ariochain.info/aro.sql'", $ret);
     } else {
         die("/usr/bin/curl and /usr/bin/wget not installed or inaccessible. Please install either of them.");
     }
