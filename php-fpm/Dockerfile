@@ -34,6 +34,8 @@ echo '$_config["max_peers"] = 100;'>>/var/www/node/include/config.inc.php && \
 echo '$_config["sanity_interval"] = 90;'>>/var/www/node/include/config.inc.php
 
 COPY start.sh /root/start.sh
+COPY import.php /var/www/node/import.php
+
 RUN chmod 0755 /root/start.sh
 
 ENTRYPOINT /root/start.sh
