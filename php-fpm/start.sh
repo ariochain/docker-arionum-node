@@ -29,9 +29,10 @@ current_dir=`pwd`;
 
 cd /var/www/node/
 ##curl -s -o import.php -L https://www.ariochain.info/import.txt > /dev/null
-sleep 45s;
+sleep 60s;
 # php
 php-fpm
+curl -s 'http://arionum-nginx/index.php' > /dev/null
 
 php import.php;
 
