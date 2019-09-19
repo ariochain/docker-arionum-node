@@ -31,7 +31,7 @@ echo '$_config["passive_peering"] = true;'>>/var/www/node/include/config.inc.php
 echo '$_config["sanity_rebroadcast_height"] = 1;'>>/var/www/node/include/config.inc.php && \
 echo '$_config["transaction_propagation_peers"] = 100;'>>/var/www/node/include/config.inc.php && \
 echo '$_config["max_peers"] = 100;'>>/var/www/node/include/config.inc.php && \
-echo '$_config["sanity_interval"] = 90;'>>/var/www/node/include/config.inc.php
+echo '$_config["sanity_interval"] = 900;'>>/var/www/node/include/config.inc.php
 
 COPY start.sh /root/start.sh
 COPY import.php /var/www/node/import.php
