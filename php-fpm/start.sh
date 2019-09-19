@@ -33,8 +33,10 @@ sleep 60s;
 # php
 php-fpm
 curl -s 'http://arionum-nginx/index.php' > /dev/null
-
+php import.php; sleep 15s;
+curl -s 'http://arionum-nginx/index.php' > /dev/null
 php import.php;
+
 
 cd $current_dir;
 
