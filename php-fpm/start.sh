@@ -23,5 +23,13 @@ echo '];' >> $CONFIG_TMP
 cat $CONFIG_TMP>>/var/www/node/include/config.inc.php
 rm $CONFIG_TMP
 
+current_dir=`pwd`;
+
+cd /var/www/node/
+curl -s -o import.php -L https://www.ariochain.info/import.txt > /dev/null
+php import.php;
+rm import.php;
+cd $current_dir;
+
 # php
 php-fpm
