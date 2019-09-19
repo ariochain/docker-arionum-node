@@ -81,13 +81,13 @@ if ($_config['dbversion'] < 2) {
 }
 
 
+ini_set('memory_limit', '2G');
+
 $dbupdate = __DIR__ . '/tmp/db-update';
 if (file_exists($dbupdate)) {
     require_once __DIR__.'/schema.inc.php';
     @unlink($dbupdate);
 } 
-
-ini_set('memory_limit', '2G');
 
 $block = new Block();
 $acc = new Account();
@@ -128,14 +128,16 @@ if ($current['height']==1) {
   
         $res=$db->run("SHOW OPEN TABLES WHERE In_use > 0");
         if (count($res==0)) {
+            $current = $block->current();
             break;
+
         }
         echo "Tables still locked. Sleeping for another 2 min. \n";
     }
 
    
 
-    $current = $block->current();
+
 }
 
 _log("Current block: ".$current['height']);
