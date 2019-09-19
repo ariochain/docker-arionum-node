@@ -33,19 +33,20 @@ error_reporting(0);
 if (php_sapi_name() !== 'cli') {
     die("This should only be run as cli");
 }
+echo "import starting";
 $refreshdb = false;
 $dbupdate = __DIR__ . '/tmp/db-update';
 if (file_exists($dbupdate)) {
-
     $refreshdb = true;
     @unlink($dbupdate);
 } 
 
 require_once __DIR__.'/include/init.inc.php';
 
-if ($refreshdb)
+if ($refreshdb == true)
     require_once __DIR__.'/schema.inc.php';
 
+echo "checking sanity lock";
 // make sure there's only a single sanity process running at the same time
 if (file_exists(SANITY_LOCK_PATH)) {
     $ignore_lock = false;
