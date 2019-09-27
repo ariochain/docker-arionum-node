@@ -8,13 +8,15 @@ services:
         - MYSQL_DATABASE=arionum
         - MYSQL_USER=arionum      
         - MYSQL_PASSWORD=arionum
+        - GIT_REPO=https://github.com/arionum/node.git
     networks:
       - arionumnetwork
-
 
   arionum-nginx:
     build:
       context: ./nginx
+      args:
+        - GIT_REPO=https://github.com/arionum/node.git
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/sites/:/etc/nginx/sites
