@@ -1,5 +1,29 @@
 #!/bin/bash
 
+#configure php
+cd /usr/local/etc/php-fpm.d
+
+if [ ! -d arionum ]; then
+  mkdir arionum;
+  cd arionum;
+  echo ''>www.conf;
+  echo 'pm.status_path = /status'>>www.conf;
+  echo 'ping.path = /ping'>>www.conf;
+  cd ..;
+  cat arionum/www.conf >> www.conf;
+fi
+
+cd /var/www/
+
+#clone node if there is no directory existing
+if [ ! -d node ]; then
+  git clone https://github.com/arionum/node
+fi
+
+#copy default config
+cp /root/config.inc.php /var/www/node/include/
+
+cd /var/www/node
 # finalize setup
 echo "initializing...";
 
