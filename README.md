@@ -20,9 +20,9 @@ docker-compose up --build
 
 ## Interact with Arionum-Node
 
-- exposed port is 8080
+- exposed port is 80
 
-Open link at [localhost:8080](http://localhost:8080)
+Open link at [localhost:80](http://localhost:80)
 
 
 ## Update node code
