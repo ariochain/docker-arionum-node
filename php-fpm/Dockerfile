@@ -49,7 +49,8 @@ RUN chmod 0755 /root/start.sh
 EXPOSE 9000
 
 HEALTHCHECK --interval=25s --timeout=3s --start-period=120s \
-    CMD php-fpm-healthcheck || exit 1
+    CMD php-fpm-healthcheck
+
 
 ENTRYPOINT ["/root/start.sh"]
 
