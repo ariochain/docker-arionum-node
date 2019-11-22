@@ -19,4 +19,4 @@ git clone https://github.com/ariochain/docker-arionum-node
 mkdir -p ~/data/arionum-mariadb-data/
 cd docker-arionum-node/
 
-docker-compose up --build -d
+#docker-compose up --build -d
