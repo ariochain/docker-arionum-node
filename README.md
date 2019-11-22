@@ -6,7 +6,7 @@ Docker running Nginx, PHP-FPM, MariaDB and Arionum cryptocurrency node
 ## ubuntu - docker instalation
 
 ```bash 
-bash install-docker-ce.sh
+sudo bash install-docker-ce.sh
 ```
 
 ## Preparation
