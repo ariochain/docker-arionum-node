@@ -11,18 +11,25 @@ Docker running Nginx, PHP-FPM, MariaDB and Arionum cryptocurrency node
 mkdir -p ~/data/arionum-mariadb-data/
 ```
 
-## Usage  
+## Usage 
+
+-starts all containers in background
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
+## Stop all containers
+
+```bash
+docker stop $(docker ps -a -q)
+```
 
 ## Interact with Arionum-Node
 
 - exposed port is 80
 
-Open link at [localhost:80](http://localhost:80)
+Open link at [localhost:80](http://localhost:80) or your external IP address
 
 
 ## Update node code
