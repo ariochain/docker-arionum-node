@@ -36,7 +36,7 @@ echo '$_config["enable_logging"] = true;'>>/root/config.inc.php && \
 echo '$_config["log_file"] = "/var/log/aro.log";'>>/root/config.inc.php && \
 echo '$_config["log_verbosity"] = 3;'>>/root/config.inc.php && \
 echo '$_config["allow_hostname_change"] = true;'>>/root/config.inc.php && \
-echo '$_config["passive_peering"] = false;'>>/root/config.inc.php && \
+echo '$_config["passive_peering"] = true;'>>/root/config.inc.php && \
 echo '$_config["max_peers"] = 1000;'>>/root/config.inc.php && \
 echo '$_config["sanity_interval"] = 900;'>>/root/config.inc.php
 

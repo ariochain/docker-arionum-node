@@ -1,4 +1,4 @@
-# Arionum-Node in Docker
+# Arionum-Node in Docker - passive peering
 
 Docker running Nginx, PHP-FPM, MariaDB and Arionum cryptocurrency node
 
@@ -27,9 +27,9 @@ docker stop $(docker ps -a -q)
 
 ## Interact with Arionum-Node
 
-- exposed port is 80
+- exposed port is 8080
 
-Open link at [localhost:80](http://localhost:80) or your external IP address
+Open link at [localhost:8080](http://localhost:8080)
 
 
 ## Update node code
