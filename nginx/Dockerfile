@@ -17,7 +17,7 @@ RUN chmod 755 /usr/local/bin/healthcheck
 
 HEALTHCHECK --interval=25s --timeout=3s --start-period=120s CMD healthcheck
 
-##HEALTHCHECK --interval=5m --timeout=3s CMD curl --fail 'http://localhost/index.php' || exit 1
+HEALTHCHECK --interval=5m --timeout=3s CMD curl --fail http://localhost || exit 1
 
 
 CMD ["nginx"]
