@@ -30,6 +30,11 @@ docker-compose up --build -d
 ```bash
 docker stop $(docker ps -a -q)
 ```
+## Remove all containers
+
+```bash
+docker rm $(docker ps -a -q)
+```
 
 ## Interact with Arionum-Node
 
