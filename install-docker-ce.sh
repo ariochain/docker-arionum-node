@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get remove docker docker-engine docker.io containerd runc
+
 apt-get upgrade -y
 apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common git
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
